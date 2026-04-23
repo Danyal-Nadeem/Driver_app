@@ -59,7 +59,8 @@ function App() {
     e.preventDefault();
     setLoading(true);
     try {
-      const response = await axios.post('http://localhost:8000/api/simulate-trip/', formData);
+      const apiUrl = import.meta.env.VITE_API_URL || 'http://localhost:8000';
+      const response = await axios.post(`${apiUrl}/api/simulate-trip/`, formData);
       setResult(response.data);
     } catch (err) {
       alert('Simulation failed. Check city names.');

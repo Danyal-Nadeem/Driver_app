@@ -35,7 +35,8 @@ const LoginPage = ({ onLogin }) => {
         }
 
         try {
-            await axios.post('http://localhost:8000/api/register/', {
+            const apiUrl = import.meta.env.VITE_API_URL || 'http://localhost:8000';
+            await axios.post(`${apiUrl}/api/register/`, {
                 email,
                 password,
                 driver_name: driverName,
@@ -57,7 +58,8 @@ const LoginPage = ({ onLogin }) => {
         }
 
         try {
-            const resp = await axios.post('http://localhost:8000/api/login/', {
+            const apiUrl = import.meta.env.VITE_API_URL || 'http://localhost:8000';
+            const resp = await axios.post(`${apiUrl}/api/login/`, {
                 email,
                 password
             });
