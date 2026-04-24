@@ -239,31 +239,31 @@ function App() {
                     )}
                     <Polyline positions={result.route.to_dropoff.coordinates.map(c => [c[1], c[0]])} color="#3b82f6" weight={5} opacity={0.8} />
                     
-                     {/* Google Maps Style Time Markers */}
+                    {/* Google Maps Style Time Markers */}
                     {result.time_markers.map((tm, idx) => (
-                      <Marker key={`tm-${idx}`} position={[tm.lat, tm.lon]} icon={L.divIcon({
+                      <Marker key={`tm-${idx}`} position={[tm.lat, tm.lon]} zIndexOffset={500} icon={L.divIcon({
                         className: 'google-maps-marker',
-                        html: `<div style="position: relative; display: flex; flex-direction: column; align-items: flex-start; filter: drop-shadow(0 2px 4px rgba(0,0,0,0.3)); transform: translate(30px, -10px);">
-                                <div style="background: #161d2a; color: white; padding: 6px 12px; border-radius: 8px; font-weight: 700; font-size: 13px; white-space: nowrap; border: 1px solid rgba(255,255,255,0.1); box-shadow: 0 4px 12px rgba(0,0,0,0.2);">
+                        html: `<div style="position: relative; display: flex; flex-direction: column; align-items: flex-start; filter: drop-shadow(0 2px 4px rgba(0,0,0,0.3)); transform: translate(45px, -15px);">
+                                <div style="background: #161d2a; color: white; padding: 4px 10px; border-radius: 6px; font-weight: 700; font-size: 11px; white-space: nowrap; border: 1px solid rgba(255,255,255,0.2); box-shadow: 0 4px 10px rgba(0,0,0,0.3);">
                                   ${tm.label}
                                 </div>
-                                <div style="width: 0; height: 0; border-left: 6px solid transparent; border-right: 6px solid transparent; border-top: 6px solid #161d2a; margin-top: -1px; margin-left: -12px; transform: translateX(-15px);"></div>
+                                <div style="width: 0; height: 0; border-left: 5px solid transparent; border-right: 5px solid transparent; border-top: 5px solid #161d2a; margin-top: -1px; margin-left: 2px;"></div>
                                </div>`,
-                        iconSize: [120, 40],
-                        iconAnchor: [5, 39]
+                        iconSize: [100, 30],
+                        iconAnchor: [0, 0]
                       })} />
                     ))}
 
                     {/* Stop & Fueling Markers */}
                     {result.stop_markers.map((stop, idx) => (
-                      <Marker key={`stop-${idx}`} position={[stop.lat, stop.lon]} icon={L.divIcon({
+                      <Marker key={`stop-${idx}`} position={[stop.lat, stop.lon]} zIndexOffset={1000} icon={L.divIcon({
                         className: 'stop-marker',
-                        html: `<div style="background: ${stop.type === 'fuel' ? '#f59e0b' : '#ef4444'}; color: white; padding: 4px 10px; border-radius: 20px; font-size: 10px; font-weight: 900; border: 2px solid white; box-shadow: 0 4px 10px rgba(0,0,0,0.3); display: flex; align-items: center; gap: 5px; white-space: nowrap;">
-                                <span style="font-size: 14px;">${stop.type === 'fuel' ? '⛽' : '🛑'}</span>
+                        html: `<div style="background: ${stop.type === 'fuel' ? '#f59e0b' : '#ef4444'}; color: white; padding: 3px 8px; border-radius: 15px; font-size: 9px; font-weight: 800; border: 1.5px solid white; box-shadow: 0 3px 8px rgba(0,0,0,0.3); display: flex; align-items: center; gap: 4px; white-space: nowrap;">
+                                <span style="font-size: 12px;">${stop.type === 'fuel' ? '⛽' : '🛑'}</span>
                                 ${stop.remark}
                               </div>`,
-                        iconSize: [140, 30],
-                        iconAnchor: [70, 15]
+                        iconSize: [120, 24],
+                        iconAnchor: [60, 12]
                       })} />
                     ))}
 
