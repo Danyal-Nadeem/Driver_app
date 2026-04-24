@@ -297,7 +297,7 @@ input[type="datetime-local"]::-webkit-calendar-picker-indicator:hover {
   align-items: center;
   justify-content: center;
   margin: 0 auto 30px;
-  border: 1px solid rgba(255,255,255,0.2);
+  border: 2px solid white;
 }
 
 .hero-title {
@@ -499,7 +499,7 @@ input[type="datetime-local"]::-webkit-calendar-picker-indicator:hover {
   justify-content: center;
   margin: 0 auto 30px;
   box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
-  border: 1px solid rgba(255, 255, 255, 0.1);
+  border: 2px solid white;
 }
 
 /* Profile Dropdown */
