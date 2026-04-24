@@ -886,3 +886,145 @@ input[type="datetime-local"]::-webkit-calendar-picker-indicator:hover {
   color: #2563eb;
   font-weight: 600;
 }
+
+/* ============================================================ */
+/* MEDIA QUERIES FOR RESPONSIVE DESIGN (MOBILE & TABLET)        */
+/* ============================================================ */
+
+@media (max-width: 768px) {
+  :root {
+    --header-height: 56px;
+  }
+  
+  .app-layout {
+    flex-direction: column-reverse;
+  }
+  
+  .sidebar {
+    width: 100vw;
+    height: 60px;
+    flex-direction: row;
+    justify-content: space-around;
+    align-items: center;
+    padding: 0 10px;
+    z-index: 200;
+  }
+  
+  .sidebar .nav-icon {
+    margin-bottom: 0;
+    width: 40px;
+    height: 40px;
+  }
+  
+  .sidebar .nav-icon:first-child {
+    display: none; /* Hide big logo on bottom tab bar to save space */
+  }
+  
+  .sidebar > div[style*="marginTop"] {
+    margin-top: 0 !important; /* Reset the auto margin for the settings icon */
+  }
+  
+  .top-header {
+    padding: 0 16px;
+  }
+  
+  .header-left h2 {
+    font-size: 18px !important;
+  }
+  
+  .header-left span {
+    font-size: 8px !important;
+  }
+  
+  .floating-panel {
+    top: 70px;
+    left: 16px;
+    right: 16px;
+    width: calc(100vw - 32px);
+    max-height: 40vh;
+  }
+  
+  .status-badges {
+    top: auto;
+    bottom: 80px;
+    left: 16px;
+    right: auto;
+    flex-direction: column;
+    gap: 8px;
+  }
+  
+  .logs-overlay {
+    left: 16px;
+    bottom: 80px;
+    right: 16px;
+    padding: 10px 0;
+  }
+  
+  .log-sheet-mini {
+    width: 80vw;
+  }
+  
+  /* Modals */
+  .profile-modal-card {
+    width: 90% !important;
+    padding: 20px !important;
+  }
+  
+  /* Authentication View */
+  .login-container {
+    flex-direction: column;
+    padding: 0;
+    height: 100vh;
+    overflow-y: auto;
+  }
+  
+  .login-map-bg {
+    display: none; /* Map might be too heavy on mobile auth */
+  }
+  
+  .login-hero {
+    flex: none;
+    height: 40vh;
+    border-radius: 0 0 30px 30px;
+  }
+  
+  .hero-logo-box {
+    width: 60px;
+    height: 60px;
+    margin-bottom: 15px;
+  }
+  
+  .hero-logo-box svg {
+    width: 30px;
+    height: 30px;
+  }
+  
+  .hero-title {
+    font-size: 36px;
+  }
+  
+  .hero-subtitle {
+    font-size: 14px;
+    padding: 0 20px;
+  }
+  
+  .hero-line {
+    margin: 20px auto;
+  }
+  
+  .login-form-side {
+    flex: 1;
+    padding: 40px 20px;
+    justify-content: flex-start;
+  }
+  
+  .login-header-nav {
+    top: 20px;
+    right: 20px;
+  }
+  
+  .login-card {
+    max-width: 100%;
+    margin-top: 10px;
+  }
+}
