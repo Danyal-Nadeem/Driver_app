@@ -164,7 +164,7 @@ function App() {
         >
           {/* Sidebar */}
           <nav className="sidebar">
-            <div className="nav-icon" style={{ background: '#161d2a', marginBottom: 30, borderRadius: 12 }}>
+            <div className="nav-icon" style={{ background: '#161d2a', marginBottom: 30, borderRadius: 12, border: '2px solid white' }}>
                 <Truck size={22} color="white" />
             </div>
             <div className="nav-icon active"><LayoutDashboard size={22} /></div>
