@@ -31,6 +31,12 @@ ALLOWED_HOSTS = os.environ.get('ALLOWED_HOSTS', '').split(',')
 if not ALLOWED_HOSTS or ALLOWED_HOSTS == ['']:
     ALLOWED_HOSTS = ['*']
 
+# CSRF Trusted Origins for production
+CSRF_TRUSTED_ORIGINS = [
+    'https://*.vercel.app',
+    'https://*.onrender.com'
+]
+
 
 # Application definition
 
@@ -132,6 +138,7 @@ STORAGES = {
 }
 
 # CORS
-CORS_ALLOW_ALL_ORIGINS = True # Change this to specific origins in production
+CORS_ALLOW_ALL_ORIGINS = True 
+CORS_ALLOW_CREDENTIALS = True
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
