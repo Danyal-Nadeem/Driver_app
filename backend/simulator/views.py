@@ -72,7 +72,7 @@ class TripSimulationView(APIView):
 
         def get_route(start, end):
             try:
-                url = f"https://router.project-osrm.org/route/v1/driving/{start['lon']},{start['lat']};{end['lon']},{start['lat']}?overview=full&geometries=geojson&annotations=true"
+                url = f"https://router.project-osrm.org/route/v1/driving/{start['lon']},{start['lat']};{end['lon']},{end['lat']}?overview=full&geometries=geojson&annotations=true"
                 resp = requests.get(url, timeout=10)
                 data = resp.json()
                 if data['code'] == 'Ok':
