@@ -152,3 +152,47 @@ class HOSSimulator:
                 } for s in segments]
             })
         return daily_sheets
+
+    def validate_batch(self, logs_batch):
+        """
+        Validates a batch of log entries for HOS cycle compliance.
+        Checks if total driving/on-duty hours exceed the 70-hour cycle limit.
+        """
+        total_driving = 0.0
+        total_on_duty = 0.0
+        violations = []
+
+        for log in logs_batch:
+            duration = log.get('duration', 0)
+            status = log.get('status')
+            
+            if status == 3: # Driving
+                total_driving += duration
+                total_on_duty += duration
+            elif status == 4: # On-Duty (Not Driving)
+                total_on_duty += duration
+
+        # Basic 70-hour / 8-day rule validation
+        is_compliant = total_on_duty <= self.CYCLE_LIMIT
+        
+        if not is_compliant:
+            violations.append(f"Cycle limit exceeded: {round(total_on_duty, 1)} hours used out of {self.CYCLE_LIMIT}")
+
+        return {
+            "is_compliant": is_compliant,
+            "total_driving": round(total_driving, 1),
+            "total_on_duty": round(total_on_duty, 1),
+            "violations": violations,
+            "timestamp": datetime.now().isoformat()
+        }
+
+    @staticmethod
+    def get_batch_summary(daily_sheets):
+        """
+        Helper to summarize a batch of daily sheets for reporting.
+        """
+        return {
+            "total_days": len(daily_sheets),
+            "total_miles": sum(day['total_miles'] for day in daily_sheets),
+            "avg_miles_per_day": round(sum(day['total_miles'] for day in daily_sheets) / len(daily_sheets), 1) if daily_sheets else 0
+        }
