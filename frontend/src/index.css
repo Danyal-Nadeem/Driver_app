@@ -182,13 +182,11 @@ input[type="datetime-local"]::-webkit-calendar-picker-indicator:hover {
   border-radius: 10px;
   font-weight: 700;
   cursor: pointer;
-  box-shadow: 0 4px 12px rgba(22, 29, 42, 0.2);
   transition: all 0.2s;
 }
 
 .action-btn:hover {
   background: #1c2536;
-  transform: translateY(-1px);
 }
 
 /* Log Sheet Overlay */
@@ -369,13 +367,11 @@ input[type="datetime-local"]::-webkit-calendar-picker-indicator:hover {
   font-weight: 700;
   font-size: 13px;
   cursor: pointer;
-  box-shadow: 0 4px 15px rgba(22, 29, 42, 0.2);
   transition: all 0.2s;
 }
 
 .get-started-btn:hover {
   background: #1c2536;
-  transform: translateY(-1px);
 }
 
 .login-card {
@@ -466,12 +462,10 @@ input[type="datetime-local"]::-webkit-calendar-picker-indicator:hover {
   cursor: pointer;
   margin-top: 5px;
   transition: all 0.2s;
-  box-shadow: 0 10px 20px rgba(22, 29, 42, 0.15);
 }
 
 .login-submit-btn:hover {
   background: #1c2536;
-  transform: translateY(-1px);
 }
 
 .auth-footer {
@@ -508,11 +502,11 @@ input[type="datetime-local"]::-webkit-calendar-picker-indicator:hover {
   top: calc(100% + 12px);
   right: 0;
   width: 200px;
-  background: #161d2a;
+  background: #ffffff;
   border-radius: 12px;
   padding: 8px;
-  box-shadow: 0 10px 25px rgba(0,0,0,0.4);
-  border: 1px solid rgba(255,255,255,0.1);
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.08);
+  border: 1px solid #e2e8f0;
   z-index: 100;
 }
 
@@ -521,7 +515,7 @@ input[type="datetime-local"]::-webkit-calendar-picker-indicator:hover {
   align-items: center;
   gap: 10px;
   padding: 10px 12px;
-  color: #94a3b8;
+  color: #475569;
   font-size: 13px;
   font-weight: 600;
   cursor: pointer;
@@ -530,8 +524,8 @@ input[type="datetime-local"]::-webkit-calendar-picker-indicator:hover {
 }
 
 .dropdown-item:hover {
-  background: rgba(255,255,255,0.05);
-  color: white;
+  background: #f1f5f9;
+  color: #0f172a;
 }
 
 .dropdown-item.logout-btn {
@@ -539,26 +533,26 @@ input[type="datetime-local"]::-webkit-calendar-picker-indicator:hover {
 }
 
 .dropdown-item.logout-btn:hover {
-  background: rgba(239, 68, 68, 0.1);
-  color: #f87171;
+  background: #fef2f2;
+  color: #dc2626;
 }
 
 .dropdown-divider {
   height: 1px;
-  background: rgba(255,255,255,0.05);
+  background: #e2e8f0;
   margin: 4px 8px;
 }
 
 /* Profile Modal */
 .profile-modal-card {
-  background: #0f172a;
+  background: #ffffff;
   width: 320px;
   padding: 30px;
   border-radius: 24px;
   position: relative;
-  border: 1px solid rgba(255,255,255,0.05);
+  border: 1px solid #e2e8f0;
   text-align: center;
-  box-shadow: 0 25px 50px -12px rgba(0,0,0,0.5);
+  box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.08), 0 10px 10px -5px rgba(0, 0, 0, 0.03);
 }
 
 .logout-modal-card {
@@ -577,8 +571,8 @@ input[type="datetime-local"]::-webkit-calendar-picker-indicator:hover {
   align-items: center !important;
   justify-content: center !important;
   padding: 20px;
-  background: rgba(0,0,0,0.8) !important;
-  backdrop-filter: blur(8px) !important;
+  background: rgba(15, 23, 42, 0.3) !important;
+  backdrop-filter: blur(4px) !important;
 }
 
 .profile-header-main {
@@ -588,8 +582,8 @@ input[type="datetime-local"]::-webkit-calendar-picker-indicator:hover {
 .profile-initial-circle {
   width: 60px;
   height: 60px;
-  background: #161d2a;
-  color: #3b82f6;
+  background: #f1f5f9;
+  color: #2563eb;
   font-size: 24px;
   font-weight: 900;
   border-radius: 50%;
@@ -597,12 +591,12 @@ input[type="datetime-local"]::-webkit-calendar-picker-indicator:hover {
   align-items: center;
   justify-content: center;
   margin: 0 auto 15px;
-  border: 4px solid #1e293b;
-  box-shadow: 0 0 20px rgba(59, 130, 246, 0.2);
+  border: 4px solid #ffffff;
+  box-shadow: 0 4px 10px rgba(37, 99, 235, 0.1);
 }
 
 .profile-header-main h2 {
-  color: white;
+  color: #0f172a;
   font-size: 24px;
   font-weight: 800;
   margin-bottom: 4px;
@@ -691,7 +685,6 @@ input[type="datetime-local"]::-webkit-calendar-picker-indicator:hover {
 .save-profile-btn:hover {
   background: #1c2536;
   border-color: #3b82f6;
-  box-shadow: 0 0 15px rgba(59, 130, 246, 0.2);
 }
 
 .close-modal-btn {
@@ -707,14 +700,15 @@ input[type="datetime-local"]::-webkit-calendar-picker-indicator:hover {
 }
 
 .close-modal-btn:hover {
-  color: white;
+  color: #0f172a;
 }
 
 /* Logout Modal Specifics */
 .logout-icon-circle {
   color: #ef4444 !important;
-  box-shadow: 0 0 20px rgba(239, 68, 68, 0.2) !important;
-  border-color: #ef444433 !important;
+  background: #fef2f2 !important;
+  border-color: #fee2e2 !important;
+  box-shadow: 0 4px 12px rgba(239, 68, 68, 0.1) !important;
 }
 
 .confirm-logout-btn {
@@ -727,18 +721,16 @@ input[type="datetime-local"]::-webkit-calendar-picker-indicator:hover {
   font-size: 12px;
   cursor: pointer;
   transition: all 0.2s;
-  box-shadow: 0 8px 20px rgba(239, 68, 68, 0.2);
 }
 
 .confirm-logout-btn:hover {
   background: #dc2626;
-  transform: translateY(-1px);
 }
 
 .cancel-logout-btn {
-  background: rgba(255,255,255,0.05);
-  color: #94a3b8;
-  border: 1px solid rgba(255,255,255,0.1);
+  background: #f1f5f9;
+  color: #475569;
+  border: 1px solid #cbd5e1;
   padding: 14px;
   border-radius: 12px;
   font-weight: 700;
@@ -748,8 +740,8 @@ input[type="datetime-local"]::-webkit-calendar-picker-indicator:hover {
 }
 
 .cancel-logout-btn:hover {
-  background: rgba(255,255,255,0.1);
-  color: white;
+  background: #e2e8f0;
+  color: #0f172a;
 }
 
 /* New Profile Edit Modal (Image Style) */
@@ -761,14 +753,14 @@ input[type="datetime-local"]::-webkit-calendar-picker-indicator:hover {
 }
 
 .edit-error-msg {
-  background: rgba(239, 68, 68, 0.1);
+  background: #fef2f2;
   padding: 10px;
   border-radius: 8px;
-  color: #f87171;
+  color: #ef4444;
   font-size: 11px;
   font-weight: 700;
   text-align: left;
-  border: 1px solid rgba(239, 68, 68, 0.2);
+  border: 1px solid #fee2e2;
 }
 
 .new-input-group {
@@ -786,11 +778,11 @@ input[type="datetime-local"]::-webkit-calendar-picker-indicator:hover {
 }
 
 .new-input-group input {
-  background: #0f172a;
-  border: 1px solid rgba(255,255,255,0.1);
+  background: #ffffff;
+  border: 1px solid #cbd5e1;
   border-radius: 10px;
   padding: 14px 16px;
-  color: white;
+  color: #0f172a;
   font-size: 14px;
   font-weight: 700;
   outline: none;
@@ -799,12 +791,13 @@ input[type="datetime-local"]::-webkit-calendar-picker-indicator:hover {
 
 .new-input-group input:focus {
   border-color: #3b82f6;
-  background: #1e293b;
+  background: #ffffff;
+  box-shadow: 0 0 0 3px rgba(37, 99, 235, 0.1);
 }
 
 .new-input-group.readonly input {
-  background: rgba(255,255,255,0.02);
-  color: #94a3b8;
+  background: #f8fafc;
+  color: #64748b;
   cursor: not-allowed;
 }
 
@@ -816,9 +809,9 @@ input[type="datetime-local"]::-webkit-calendar-picker-indicator:hover {
 
 .new-cancel-btn {
   flex: 1;
-  background: #1e293b;
-  color: #94a3b8;
-  border: none;
+  background: #f1f5f9;
+  color: #475569;
+  border: 1px solid #cbd5e1;
   padding: 14px;
   border-radius: 12px;
   font-weight: 800;
@@ -828,8 +821,8 @@ input[type="datetime-local"]::-webkit-calendar-picker-indicator:hover {
 }
 
 .new-cancel-btn:hover {
-  background: #334155;
-  color: white;
+  background: #e2e8f0;
+  color: #0f172a;
 }
 
 .new-save-btn {
@@ -842,14 +835,11 @@ input[type="datetime-local"]::-webkit-calendar-picker-indicator:hover {
   font-weight: 800;
   font-size: 12px;
   cursor: pointer;
-  box-shadow: 0 4px 15px rgba(37, 99, 235, 0.3);
   transition: all 0.2s;
 }
 
 .new-save-btn:hover {
   background: #1d4ed8;
-  transform: translateY(-1px);
-  box-shadow: 0 6px 20px rgba(37, 99, 235, 0.4);
 }
 
 /* Suggestions Dropdown */
@@ -1026,5 +1016,57 @@ input[type="datetime-local"]::-webkit-calendar-picker-indicator:hover {
   .login-card {
     max-width: 100%;
     margin-top: 10px;
+  }
+}
+
+/* Custom Zoom Controls */
+.custom-zoom-control {
+  position: absolute;
+  bottom: 24px;
+  right: 24px;
+  z-index: 1000;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  transition: bottom 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.custom-zoom-control.has-result {
+  bottom: 180px;
+}
+
+.zoom-btn {
+  width: 44px;
+  height: 44px;
+  border-radius: 12px;
+  background: rgba(255, 255, 255, 0.9);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border: 1px solid rgba(0, 0, 0, 0.08);
+  color: #1e293b;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.zoom-btn:hover {
+  background: #ffffff;
+  color: #2563eb;
+  border-color: rgba(37, 99, 235, 0.2);
+}
+
+.zoom-btn:active {
+  transform: translateY(0);
+}
+
+@media (max-width: 768px) {
+  .custom-zoom-control {
+    bottom: 80px;
+    right: 16px;
+  }
+  .custom-zoom-control.has-result {
+    bottom: 240px;
   }
 }

@@ -5,8 +5,8 @@ import { motion } from 'framer-motion';
 import { MapContainer, TileLayer } from 'react-leaflet';
 import L from 'leaflet';
 
-const LoginPage = ({ onLogin }) => {
-  const [isSignup, setIsSignup] = useState(false);
+const LoginPage = ({ onLogin, initialIsSignup = false, onBackToLanding }) => {
+  const [isSignup, setIsSignup] = useState(initialIsSignup);
   const [showPassword, setShowPassword] = useState(false);
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
@@ -101,6 +101,8 @@ const LoginPage = ({ onLogin }) => {
             initial={{ opacity: 0, y: -20 }}
             animate={{ opacity: 1, y: 0 }}
             className="hero-logo-box"
+            onClick={onBackToLanding}
+            style={{ cursor: 'pointer' }}
           >
             <Truck size={42} color="white" />
           </motion.div>
@@ -109,6 +111,8 @@ const LoginPage = ({ onLogin }) => {
             initial={{ opacity: 0, scale: 0.9 }}
             animate={{ opacity: 1, scale: 1 }}
             className="hero-title"
+            onClick={onBackToLanding}
+            style={{ cursor: 'pointer' }}
           >
             Drive<span>Ledger</span>
           </motion.h1>
@@ -118,6 +122,8 @@ const LoginPage = ({ onLogin }) => {
             animate={{ opacity: 1 }}
             transition={{ delay: 0.2 }}
             className="hero-subtitle"
+            onClick={onBackToLanding}
+            style={{ cursor: 'pointer' }}
           >
             Smart ELD & Fleet Intelligence Simulator.
           </motion.p>
@@ -129,6 +135,9 @@ const LoginPage = ({ onLogin }) => {
       {/* Right Form Section */}
       <div className="login-form-side" style={{ paddingTop: isSignup ? '100px' : '140px' }}>
         <div className="login-header-nav">
+            <span className="nav-link" onClick={onBackToLanding} style={{ marginRight: 'auto', display: 'flex', alignItems: 'center', gap: '4px' }}>
+              ← Back to Home
+            </span>
             <span className="nav-link" onClick={() => { setIsSignup(false); setError(''); }}>Login</span>
             <button className="get-started-btn" onClick={() => { setIsSignup(true); setError(''); }}>Get Started</button>
         </div>

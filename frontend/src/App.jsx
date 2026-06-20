@@ -12,6 +12,7 @@ import { motion, AnimatePresence } from 'framer-motion';
 import LogSheet from './components/LogSheet';
 import L from 'leaflet';
 import LoginPage from './components/LoginPage';
+import LandingPage from './components/LandingPage';
 
 // Leaflet Icon Fix
 import markerIcon from 'leaflet/dist/images/marker-icon.png';
@@ -33,8 +34,47 @@ function RecenterMap({ position }) {
   return null;
 }
 
+function MapZoomControl({ hasResult }) {
+  const map = useMap();
+  return (
+    <div className={`custom-zoom-control ${hasResult ? 'has-result' : ''}`}>
+      <button 
+        type="button" 
+        className="zoom-btn" 
+        onClick={(e) => {
+          e.preventDefault();
+          e.stopPropagation();
+          map.zoomIn();
+        }} 
+        title="Zoom In"
+      >
+        <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round">
+          <line x1="12" y1="5" x2="12" y2="19"></line>
+          <line x1="5" y1="12" x2="19" y2="12"></line>
+        </svg>
+      </button>
+      <button 
+        type="button" 
+        className="zoom-btn" 
+        onClick={(e) => {
+          e.preventDefault();
+          e.stopPropagation();
+          map.zoomOut();
+        }} 
+        title="Zoom Out"
+      >
+        <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round">
+          <line x1="5" y1="12" x2="19" y2="12"></line>
+        </svg>
+      </button>
+    </div>
+  );
+}
+
 function App() {
   const [isLoggedIn, setIsLoggedIn] = useState(false);
+  const [showLanding, setShowLanding] = useState(true);
+  const [initialSignup, setInitialSignup] = useState(false);
   const [formData, setFormData] = useState({
     current_location: 'Lahore',
     pickup_location: 'Multan',
@@ -146,6 +186,7 @@ function App() {
 
   const confirmLogout = () => {
     setIsLoggedIn(false);
+    setShowLanding(true);
     setShowLogoutModal(false);
     setShowProfileMenu(false);
   };
@@ -153,7 +194,22 @@ function App() {
   return (
     <AnimatePresence mode="wait">
       {!isLoggedIn ? (
-        <LoginPage key="login" onLogin={handleLogin} />
+        showLanding ? (
+          <LandingPage 
+            key="landing"
+            onNavigateToAuth={(isSignup) => {
+              setInitialSignup(isSignup);
+              setShowLanding(false);
+            }} 
+          />
+        ) : (
+          <LoginPage 
+            key="login" 
+            onLogin={handleLogin} 
+            initialIsSignup={initialSignup}
+            onBackToLanding={() => setShowLanding(true)}
+          />
+        )
       ) : (
         <motion.div 
             key="dashboard"
@@ -229,6 +285,7 @@ function App() {
             <div className="map-fullscreen">
               <MapContainer center={[30.3753, 69.3451]} zoom={5} style={{ height: '100%', width: '100%' }} zoomControl={false} attributionControl={false}>
                 <TileLayer url="https://{s}.basemaps.cartocdn.com/light_all/{z}/{x}/{y}{r}.png" attribution='&copy; CARTO' />
+                <MapZoomControl hasResult={!!result} />
                 {result && (
                   <>
                     <RecenterMap position={[result.locations.pickup.lat, result.locations.pickup.lon]} />
